@@ -1813,3 +1813,74 @@
 
 
 
+// ===================================================================================================================================================================================
+
+// Section 24:
+// Binary Heaps
+
+// A binary heap is another category of trees
+// There are many types of heaps
+
+
+// What is a Binary Heap?
+// - In a binary heap, all the children of each node are as full as possible
+// - LEFT CHILDREN ARE FILLED FIRST
+
+// Max Heap:
+// -Parent nodes are ALWAYS GREATER than the children nodes
+
+
+// Min Heap:
+// - Children nodes are ALWAYS GREATER than the parent node
+
+// Formula to find a child node based off of index of parent node:
+// Find Left node: 2n + 1;          or (2 * nodeIndex) + 1;
+// Find Right node: 2n + 2;         or (2 * nodeIndex) + 2;
+
+// To find the parent of a child node, reverse the formula:
+// (nodeIndex - 1) / 2  => Gives the index of the parent node
+
+
+
+// class MaxBinaryHeap {
+//     constructor() {
+//         this.values = [41,39,33,18,27,12];
+//     }
+
+//     insert(element) {
+//         this.values.push(element)
+//         this.bubbleUp();
+//     }
+
+//     bubbleUp() {
+//         let index = this.values.length - 1;
+//         let element = this.values[index]
+//         while(index > 0) {
+//             let parentIndex = Math.floor((index -1) / 2);           // Get index of parent node
+//             let parent = this.values[parentIndex];                  // Get the value of parent node
+//             if(element <= parent) break;                            // If element is less than the parent node, dont move it anywhere
+//                 this.values[parentIndex] = element;                 // Swap
+//                 this.values[index] = parent;                        // Swap
+//                 index = parentIndex;
+//         }
+//     }
+
+
+
+// }
+
+// let heap = new MaxBinaryHeap();
+
+// console.log(heap);
+
+
+// // INSERT
+// heap.insert(55);
+// heap.insert(1);
+// heap.insert(45);
+// heap.insert(100);
+
+
+
+
+

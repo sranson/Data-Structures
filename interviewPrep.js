@@ -1833,6 +1833,7 @@
 // Min Heap:
 // - Children nodes are ALWAYS GREATER than the parent node
 
+// FORMULA
 // Formula to find a child node based off of index of parent node:
 // Find Left node: 2n + 1;          or (2 * nodeIndex) + 1;
 // Find Right node: 2n + 2;         or (2 * nodeIndex) + 2;
@@ -1865,6 +1866,50 @@
 //         }
 //     }
 
+//     // Remove the root from Max Heap
+//     extractMax() {
+//         const max = this.values[0];                                 // First element in array
+//         const end = this.values.pop();                              // Remove last element in array
+//         if(this.values.length > 0)  {
+//             this.values[0] = end;                                       // Put the element that was just removed, at the start of array
+//             this.sinkDown();                                            // Invoke sinkDown
+//         }
+//         return max;                                                 // Return the element that was removed for good
+//     }
+
+
+    
+//     sinkDown() {
+//         let index = 0;                                              
+//         const length = this.values.length;
+//         const element = this.values[0];                               // The element that was JUST placed in values[0] from extractMax()
+//         while(true) {
+//            let leftChildIndex = 2 * index + 1;
+//            let rightChildindex = 2 * index + 2;
+//            let leftChild, rightChild;
+//            let swap = null;
+           
+//            if(leftChildIndex < length) {
+//                leftChild = this.values[leftChildIndex];
+//                if(leftChild > element) {
+//                    swap = leftChildIndex;
+//                }
+//            }
+//            if(rightChildindex < length) {
+//                rightChild = this.values[rightChildindex];
+//                if(
+//                    (swap === null && rightChild > element) ||
+//                    (swap !== null && rightChild > leftChild)
+//                ) {
+//                    swap = rightChildindex;
+//                }
+//            }
+//            if(swap === null) break;
+//            this.values[index] = this.values[swap];
+//            this.values[swap] = element;
+//            index = swap;
+//         }
+//     }
 
 
 // }
@@ -1876,11 +1921,11 @@
 
 // // INSERT
 // heap.insert(55);
-// heap.insert(1);
-// heap.insert(45);
-// heap.insert(100);
+// // heap.insert(1);
+// // heap.insert(45);
+// // heap.insert(100);
 
 
-
-
-
+// // Before extractMax()              [55, 39, 41, 18, 27, 12, 33]
+// heap.extractMax();                              
+// // After extractMax()               [41, 39, 33, 18, 27, 12]

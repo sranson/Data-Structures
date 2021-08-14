@@ -1934,11 +1934,17 @@
 
 
 // Priority Queue:
-// What is a priroty queue?
 
+// What is a priority queue?
 // An abstract concept/ data structure where each element has a priority.
 // Elements with higher priorities are served before elements with lower priorities
 // Often implemented with Binary Heaps
+
+// Big-O (Min and Max)
+//====================
+// Insertion: O(log N)
+// Removal: O(log N)
+// Search: O(N)                 // not really made for searching. A BST may be a better option
 
 
 
@@ -2034,6 +2040,154 @@
 
 // // Dequeue
 // // ER.dequeue();
+
+
+
+// ===================================================================================================================================================================================
+//*
+//*
+//*
+//*
+//*
+//*
+//*
+//*
+//*                                                                                NEXT SECTION
+//*
+//*
+//*
+//*
+//*
+//*
+//*
+// ===================================================================================================================================================================================
+
+// Section 25:
+// Hash Tables
+
+// Hash tables are used to store key-value pairs
+// Hash Tables are unordered
+// Fast for:
+    // - Finding values
+    // - Adding new values
+    // - Removing values
+
+
+//Big-O Notation:
+// Insertion: O(1)
+// Deletion: O(1)
+// Access: O(1)
+
+
+// Hash Tables in Other languages
+//===============================
+// Python - Dictionaries
+// JavaScript - Objects(some restrictions), Maps
+// Go, Scala - Maps
+// Ruby - Hashes
+
+
+// Hash Node constructor function
+// class HashNode {
+//     constructor(key, value) {
+//         this.key = key;
+//         this.value = value;
+//     }
+// }
+
+
+
+// // Hash table constructor function
+// class HashTable {
+//     constructor(size) {
+//         this.buckets = Array(size);
+//         this.numbuckets = this.buckets.length;
+//     }
+
+//     hash(key) {
+//         let total = 0;
+
+//         for(let i = 0; i < key.length;i++) {
+//             total += key.charCodeAt(i);
+//         }
+//         let bucket = total % this.numbuckets;
+//         return bucket;
+//     }
+
+//     // Insert into a Hash Table - COLLISIONS WORK
+//     insert(key, value) {
+//         let index = this.hash(key);
+
+//         if(!this.buckets[index])  {                                         // If the bucket is empty
+//             this.buckets[index] = [];                                       // Initialize an empty array
+//             this.buckets[index].push(new HashNode(key, value));             // Push newNode into the empty array
+//         }
+//         else {                                                              
+//             let currentArray = this.buckets[index];                         // If the bucket is NOT empty
+//             currentArray.push(new HashNode(key, value));                    // Push new Node into that bucket's array 
+//         }
+//     }
+
+//     // Search for a value by key
+//     search(key) {
+//         let index = this.hash(key);
+
+//         if(this.buckets[index]) {
+//             for(let i = 0; i < this.buckets[index].length; i++) {
+//               if(this.buckets[index][i].key === key) {
+//                   return this.buckets[index][i].value;
+//               }  
+//             }
+//         }
+//         return undefined;
+//     }
+
+//     update(key, value) {
+//         let index = this.hash(key);
+
+//         let arr = this.buckets[index];
+//         for(let i = 0; i < arr.length; i++) {
+//             if(arr[i].key === key) arr[i].value = value;
+//             break;
+//         }
+//     } 
+
+//     // Retrieve All Array of Nodes from HashTable
+//     retrieveAll() {
+//         let allData = [];
+
+//         for(let i = 0; i < this.numbuckets; i++) {
+//             let currentArray = this.buckets[i];
+
+//             while(currentArray) {
+//                 allData.push(currentArray)
+//                 currentArray = currentArray.next;
+//             }
+//         }
+//         return allData;
+//     }
+// }
+
+
+// let myTable = new HashTable(30);
+// console.log(myTable);
+
+// Insert
+// myTable.insert('Salome', 'salome@gmail.com');
+// myTable.insert('emolaS', 'salome@yahoo.com');            // Collision
+// myTable.insert('Amanda', 'amanda@gmail.com');
+// myTable.insert('Amanda', 'adbrow@gmail.com');
+
+// Update
+// myTable.update('Amanda', 'adbrow@gmail.com');
+// myTable.update("Salome", "SALOME@TWITTER.COM");
+
+// Search
+// console.log(myTable.search('Amanda'));
+
+// console.log(myTable.retrieveAll());
+
+
 
 
 

@@ -2188,6 +2188,165 @@
 // console.log(myTable.retrieveAll());
 
 
+// ===================================================================================================================================================================================
+//*
+//*
+//*
+//*
+//*
+//*
+//*
+//*
+//*                                                                                NEXT SECTION
+//*
+//*
+//*
+//*
+//*
+//*
+//*
+// ===================================================================================================================================================================================
+
+
+// Section 26:
+// Graphs
+
+// What is a graph?
+// A set of nodes and connections between those nodes
+// There are no top or parent nodes
+// Each nodes is treated equally and connected in different ways
+
+
+// Uses for graphs:
+//==================
+// Social networking
+// Mapping / location
+// Routing algorithms
+// Visual hiarchy
+// File system optimizations
+// Recommendation Engines:
+        // "People also watched"        - Netflix
+        // "You might also like"        - Music streaming
+        // "People you might like"      - Facebook, Instagram, Twitter
+        // "Frequently bought with"     - Amazon
+
+
+
+// Graph Terminology:
+// ================
+// Vertex - a node
+// Edge - connection between nodes
+
+
+// Types of graphs
+//================
+// Undirected Graph - Two-way edge direction                            a <-----> b     Eg. Facebook friends graphs(two-way relationship)
+// Directed Graph - One-way edge direction                              a ------> b     Eg. Twitter/ Instagram followers (Can be a one-way relationship)- Could be bi-directional (two-way)
+// Weighted Graph - Each edge has NO VALUE associated with it
+// Unweighted Graph - Each edge has a value associated with it
+
+
+
+
+// Two standard implementations of a graph:
+//=========================================
+// 1. Adjacency Matrix
+        // Matrix - a structure that confirms edges/connections between vertexes/nodes w/ rows and columns
+// 2. Adjacency List
+        // List - Uses hash table to store the edges/connections between nodes
+
+
+
+// Big-O (Adjacency Matrix vs Adjacency List):
+//============================================
+// |V| = number of vertices
+// |E| = number of edges
+
+// List:
+//======
+// Less Space                                           
+// Faster to iterate over all edges                    
+// Slower to query for specific edge
+// - - - - - - - - - - - - - - - - - 
+// Add Vertex: O(1)
+// Add edge: O(1)
+// Remove vertex: O(|V| + |E|)
+// Remove edge: O(|E|)
+// Query: O(|V|+|E|)
+// Storage: O(|V|+|E|)
+
+// Matrix:
+//========
+// More space (Additional columns and rows for every vertex/edge)
+// Slower to iterate over all edges
+// Faster to query for specific edge
+// - - - - - - - - - - - - - - - - - 
+// Add Vertex: O(V^2)
+// Add edge: O(1)
+// Remove vertex: O(V^2)
+// Remove edge: O(1)
+// Query: O(1)
+// Storage: O(V^2)
+
+
+
+// Undirected Graph implementation
+
+// class Graph {
+//     constructor() {
+//        this.adjacencyList = {}; 
+//     }
+
+//     addVertex(vertex) {
+//         if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];            
+//     }
+
+//     // Undirected graph (Two-way connection)
+//     addEdge(v1, v2) {
+//         if(!this.adjacencyList[v1] || !this.adjacencyList[v2]) return undefined;
+//         this.adjacencyList[v1].push(v2);
+//         this.adjacencyList[v2].push(v1);                                                    // Remove this code to create a Directed Graph (one-way connection)
+//     }
+
+//     removeEdge(v1, v2) {
+//         this.adjacencyList[v1] = this.adjacencyList[v1].filter(vertex => vertex !== v2)
+//         this.adjacencyList[v2] = this.adjacencyList[v2].filter(vertex => vertex !== v1)
+//     }
+
+//     removeVertex(vertex) {
+//         while(this.adjacencyList[vertex].length) {                                          // While there are elements in that key's array
+//             const adjacentVertex = this.adjacencyList[vertex].pop()                         // Loop through array and delete all vertexes
+//             this.removeEdge(vertex, adjacentVertex);                                        // Use this method to delete all references to vertex in other key's arrays
+//         }
+//         delete this.adjacencyList[vertex];                                                  // Delete the key entirely
+//     }
+// }
+
+
+// let myGraph = new Graph();
+
+// // Add vertex
+// myGraph.addVertex('Tokyo');
+// myGraph.addVertex('Atlanta');
+// myGraph.addVertex('New Orleans');
+
+// // Create edge
+// myGraph.addEdge('Tokyo', 'Atlanta');
+// myGraph.addEdge('Atlanta', 'New Orleans');
+
+// // Remove edge
+// myGraph.removeEdge("Tokyo", "Atlanta")
+
+// // Remove vertex
+// myGraph.removeVertex("Tokyo")
+
+// console.log(myGraph);
+
+
+
+
+
+
 
 
 
